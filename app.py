@@ -13,6 +13,9 @@ from config import (
     PUBLIC_KEY,
     SECRET_KEY,
 
+    CERTIFICATE_CERT,
+    PRIVATE_CERT,
+
     FORUM_NAME,
     USER_NAME
 )
@@ -115,5 +118,7 @@ def get_recentcomments():
 
     return jsonify(response=recent_posts)
 
-
-app.run(host=HOST, port=PORT)
+if CERTIFICATE_CERT and PRIVATE_CERT:
+    app.run(host=HOST, port=PORT, context=(CERTIFICATE_CERT, PRIVATE_CERT))
+else:
+    app.run(host=HOST, port=PORT)
