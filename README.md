@@ -133,6 +133,12 @@ REMOTE_DIR = '/data'
 
 可以看到根目录下有一个用于发布的 fabfile.py，执行 `fab deploy` 即可根据 `config.py` 的配置发布到远程服务器指定目录下，推荐使用 supervisor 启动。
 
+### FAQ
+
+**1.** __call__() takes exactly 1 argument (5 given)
+
+这个项目依赖于官方的 [python SDK](https://github.com/disqus/disqus-python)，直接通过 pip 安装这个库会报错，通过这条命令安装：`pip install git+https://github.com/disqus/disqus-python.git`
+
 ### LICENSE
 
 MIT
